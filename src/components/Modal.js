@@ -4,10 +4,7 @@ import "./Modal.css";
 class Modal extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.modalElement = null;
-
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -16,27 +13,16 @@ class Modal extends React.Component {
     this.props.handleAction(id, action);
   }
 
-  handleKeyDown(e) {
-    this.handleAction(this.props.id, "CANCEL");
-  }
-
   handleClick(e) {
     if (e.target === e.currentTarget) {
       this.handleAction(this.props.id, "CANCEL");
     }
   }
 
-//   componentDidMount() {
-//     this.modalElement.focus();
-//     debugger;
-//   }
-
   render() {
     return (
       <div
         className="modal-container"
-        // ref={elem => { this.modalElement = elem }}
-        // onKeyPress= {this.handleKeyDown }
         onClick={ this.handleClick }
       >
         <div className="modal-content">
